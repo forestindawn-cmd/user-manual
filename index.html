@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공구관리시스템 v4.2 — 완전 사용 설명서</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ── 모바일 오버레이 ── -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- ══════════════════════════════
+    사이드바 네비게이션
+  ══════════════════════════════ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <span class="logo-icon">🛒</span>
+        <div>
+          <div class="logo-title">공구관리시스템</div>
+          <div class="logo-version">v4.2 사용 설명서</div>
+        </div>
+      </div>
+      <div class="sidebar-search">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="검색..." autocomplete="off">
+      </div>
+    </div>
+
+    <nav class="sidebar-nav" id="sidebarNav">
+      <div class="nav-group">
+        <div class="nav-group-title">시작하기</div>
+        <a class="nav-item active" href="#intro" data-section="intro">
+          <span class="nav-icon">📖</span> 시스템 소개
+        </a>
+        <a class="nav-item" href="#setup" data-section="setup">
+          <span class="nav-icon">⚙️</span> 초기 설정
+        </a>
+        <a class="nav-item" href="#master" data-section="master">
+          <span class="nav-icon">📋</span> 마스터 데이터 등록
+        </a>
+        <a class="nav-item" href="#calendar" data-section="calendar">
+          <span class="nav-icon">📅</span> 캘린더 동기화
+        </a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-title">화면 기능</div>
+        <a class="nav-item" href="#home" data-section="home">
+          <span class="nav-icon">🏠</span> 홈 대시보드
+        </a>
+        <a class="nav-item" href="#sales-overview" data-section="sales-overview">
+          <span class="nav-icon">📊</span> 공구매출 탭
+        </a>
+        <a class="nav-item" href="#sales-input" data-section="sales-input">
+          <span class="nav-icon">💵</span> 판매입력 탭
+        </a>
+        <a class="nav-item" href="#checklist" data-section="checklist">
+          <span class="nav-icon">✅</span> 정산 체크리스트
+        </a>
+        <a class="nav-item" href="#kakao" data-section="kakao">
+          <span class="nav-icon">💬</span> 카톡 템플릿
+        </a>
+        <a class="nav-item" href="#settlement" data-section="settlement">
+          <span class="nav-icon">📋</span> 정산서 생성
+        </a>
+        <a class="nav-item" href="#sample" data-section="sample">
+          <span class="nav-icon">📦</span> 샘플관리 탭
+        </a>
+        <a class="nav-item" href="#target" data-section="target">
+          <span class="nav-icon">🎯</span> 매출목표 탭
+        </a>
+        <a class="nav-item" href="#system" data-section="system">
+          <span class="nav-icon">🔧</span> 설정 및 관리
+        </a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-title">실전 가이드</div>
+        <a class="nav-item" href="#scenarios" data-section="scenarios">
+          <span class="nav-icon">🗺️</span> 실전 시나리오
+        </a>
+        <a class="nav-item" href="#faq" data-section="faq">
+          <span class="nav-icon">❓</span> FAQ
+        </a>
+        <a class="nav-item" href="#troubleshoot" data-section="troubleshoot">
+          <span class="nav-icon">🛠️</span> 트러블슈팅
+        </a>
+        <a class="nav-item" href="#templates" data-section="templates">
+          <span class="nav-icon">📝</span> 카톡 템플릿 전체 목록
+        </a>
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-credit">Developed by <strong>UNDEFIANCE</strong></div>
+    </div>
+  </aside>
+
+  <!-- ══════════════════════════════
+    메인 컨텐츠
+  ══════════════════════════════ -->
+  <main class="main" id="main">
+
+    <!-- 상단 헤더 바 -->
+    <header class="topbar">
+      <button class="menu-btn" id="menuBtn" aria-label="메뉴">☰</button>
+      <div class="topbar-breadcrumb" id="breadcrumb">시스템 소개</div>
+      <div class="topbar-actions">
+        <button class="theme-btn" id="themeBtn" title="다크모드 전환">🌙</button>
+      </div>
+    </header>
+
+    <div class="content" id="content">
+
+      <!-- ════════ 섹션: 시스템 소개 ════════ -->
+      <section id="intro" class="section active">
+        <div class="hero">
+          <div class="hero-badge">공구관리시스템 v4.2</div>
+          <h1 class="hero-title">완전 사용 설명서</h1>
+          <p class="hero-sub">구글 계정 하나로 완성하는 공구 비즈니스 자동화 시스템<br>개발 지식 없이도 이 설명서만으로 완벽하게 사용할 수 있습니다.</p>
+          <div class="hero-meta">Developed by UNDEFIANCE &nbsp;·&nbsp; 2026년 3월</div>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <span class="feature-icon">📅</span>
+            <div class="feature-title">캘린더 연동</div>
+            <div class="feature-desc">구글 캘린더에 일정 등록 → 워크플로우 자동 생성</div>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">💰</span>
+            <div class="feature-title">마진 자동계산</div>
+            <div class="feature-desc">판매수량 입력 → 셀러·벤더마진 즉시 산출</div>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">📋</span>
+            <div class="feature-title">정산서 자동생성</div>
+            <div class="feature-desc">클릭 한 번 → 3종 엑셀 정산서 자동 완성</div>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">💬</span>
+            <div class="feature-title">카톡 72개 템플릿</div>
+            <div class="feature-desc">단계별 메시지 선택 → 변수 자동 치환 후 복사</div>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">✅</span>
+            <div class="feature-title">정산 체크리스트</div>
+            <div class="feature-desc">결제창별 단계 추적으로 누락 없는 정산</div>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🌐</span>
+            <div class="feature-title">구글 계정만 필요</div>
+            <div class="feature-desc">서버 없음 · 설치 없음 · 월 구독료 없음</div>
+          </div>
+        </div>
+
+        <h2>1.1 공구관리시스템이란</h2>
+        <p>공구관리시스템은 인스타그램 인플루언서 공동구매(공구) 비즈니스의 전 과정을 하나의 웹앱에서 관리하는 시스템입니다. 구글 캘린더에 일정을 등록하면 자동으로 공구 워크플로우가 생성되고, 판매 입력부터 정산서 자동 생성, 카카오톡 메시지 템플릿까지 모든 업무를 처리할 수 있습니다.</p>
+        <p>이 시스템은 구글 Apps Script(GAS) 기반 웹앱으로 동작합니다. 별도의 서버 없이 구글 스프레드시트를 데이터베이스로 사용하며, 구글 캘린더·구글 드라이브와 연동됩니다.</p>
+
+        <h2>1.2 시스템 구성도</h2>
+        <div class="flow-diagram">
+          <div class="flow-step">
+            <div class="flow-icon">📅</div>
+            <div class="flow-label">구글 캘린더</div>
+            <div class="flow-desc">셀러명-업체명-제품명 형식으로 공구 일정 등록</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-icon">🔄</div>
+            <div class="flow-label">캘린더 동기화</div>
+            <div class="flow-desc">시스템이 일정을 읽어 워크플로우 자동 생성</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-icon">📊</div>
+            <div class="flow-label">구글 스프레드시트</div>
+            <div class="flow-desc">마스터 데이터·워크플로우·판매데이터 저장</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-icon">🌐</div>
+            <div class="flow-label">웹앱 (9개 탭)</div>
+            <div class="flow-desc">홈·공구매출·판매입력·정산체크·카톡·정산서·샘플·매출목표·설정</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-icon">📁</div>
+            <div class="flow-label">구글 드라이브</div>
+            <div class="flow-desc">정산서 엑셀 자동 저장, 서류 이미지 보관</div>
+          </div>
+        </div>
+
+        <h2>1.3 주요 용어 정리</h2>
+        <table class="doc-table">
+          <thead><tr><th>용어</th><th>설명</th></tr></thead>
+          <tbody>
+            <tr><td><strong>공구</strong></td><td>인플루언서가 팔로워 대상으로 진행하는 공동구매. 일정 기간 동안 특정 제품을 할인가에 판매합니다.</td></tr>
+            <tr><td><strong>셀러</strong></td><td>공구를 진행하는 인플루언서를 말합니다. 인플루언서와 동의어로 사용됩니다.</td></tr>
+            <tr><td><strong>업체(제조사)</strong></td><td>공구 제품을 공급하는 업체입니다. 제조사 또는 벤더사(유통사)일 수 있습니다.</td></tr>
+            <tr><td><strong>벤더(당사)</strong></td><td>우리 회사(UNDEFIANCE)를 의미합니다. 셀러와 업체 사이에서 중개 역할을 합니다.</td></tr>
+            <tr><td><strong>결제창</strong></td><td>결제를 누가 관리하느냐에 따라 '제조사', '벤더사', '인플루언서' 3가지로 구분됩니다.</td></tr>
+            <tr><td><strong>정산유형</strong></td><td>셀러의 세금 처리 방식. '사업자'(세금계산서), '현금영수증', '3.3%'(원천징수), '베벤더' 4종류입니다.</td></tr>
+            <tr><td><strong>부가세구분</strong></td><td>업체의 부가세 처리 방식. '포함'(VAT 포함가)과 '별도'(VAT 별도가) 2종류입니다.</td></tr>
+            <tr><td><strong>수수료방식</strong></td><td>수수료를 %(비율)로 계산하거나 '원'(정액/개당)으로 계산하는 방식입니다.</td></tr>
+            <tr><td><strong>PG수수료</strong></td><td>스마트스토어, 네이버페이 등 결제 플랫폼에서 차감되는 수수료입니다.</td></tr>
+            <tr><td><strong>워크플로우</strong></td><td>하나의 공구에 대한 전체 정보를 담는 레코드입니다. 캘린더 동기화 시 자동 생성됩니다.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ════════ 섹션: 초기 설정 ════════ -->
+      <section id="setup" class="section">
+        <div class="section-hero">
+          <h1>⚙️ 시작하기 — 초기 설정</h1>
+          <p>시스템을 처음 사용하기 위한 단계별 설정 가이드입니다.</p>
+        </div>
+
+        <h2>2.1 구글 스프레드시트 준비</h2>
+        <p>시스템의 모든 데이터는 하나의 구글 스프레드시트에 저장됩니다. 스프레드시트 ID는 URL에서 확인할 수 있습니다.</p>
+        <div class="code-block">
+          <div class="code-label">스프레드시트 URL 형식</div>
+          <code>https://docs.google.com/spreadsheets/d/<span class="code-highlight">여기가_스프레드시트_ID</span>/edit</code>
+        </div>
+        <div class="callout callout-tip">
+          💡 시스템 초기화를 실행하면 필요한 모든 시트(업체마스터, 셀러마스터, 제품마스터, 정산워크플로우, 판매입력, 샘플관리, 카톡템플릿, 정산총괄, 공구매출현황, 매출목표)가 자동 생성됩니다.
+        </div>
+
+        <h2>2.2 구글 캘린더 연결</h2>
+        <p>시스템은 복수의 구글 캘린더를 동시에 연동할 수 있습니다. Code.gs의 CONFIG.CALENDAR_IDS 배열에 사용할 캘린더 이메일 주소를 등록합니다.</p>
+        <div class="code-block">
+          <div class="code-label">Code.gs 설정 예시</div>
+          <code>CALENDAR_IDS: ['your@gmail.com', 'another@gmail.com']</code>
+        </div>
+        <div class="callout callout-warn">
+          ⚠️ 캘린더 일정의 셀러명, 업체명, 제품명은 각 마스터 시트에 등록된 이름과 <strong>정확히</strong> 일치해야 자동 매칭됩니다. 오타나 띄어쓰기 차이가 있으면 매칭되지 않습니다.
+        </div>
+
+        <h2>2.3 구글 드라이브 폴더 구조</h2>
+        <p>시스템은 두 개의 드라이브 폴더를 사용합니다.</p>
+        <div class="info-cards">
+          <div class="info-card">
+            <div class="info-card-title">📁 정산서 폴더 (SETTLEMENT_FOLDER_ID)</div>
+            <div class="info-card-body">정산서 엑셀(.xlsx) 파일이 자동 저장되는 폴더입니다. NAS Cloud Sync와 연동하면 자동 백업됩니다.</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-title">📁 서류보관 폴더 (DOCUMENT_FOLDER_ID)</div>
+            <div class="info-card-body">사업자등록증, 통장사본 등 서류를 보관하는 폴더입니다. 아래 구조로 만들어야 합니다.</div>
+          </div>
+        </div>
+        <div class="code-block">
+          <div class="code-label">서류보관 폴더 구조</div>
+          <code>서류보관폴더/<br>├── 업체/<br>│   ├── 뷰티솔루션/  ← 업체명과 동일한 폴더명<br>│   └── 헬스팜/<br>└── 셀러/<br>    ├── 홍길동/   ← 셀러명과 동일한 폴더명<br>    └── 김영희/</code>
+        </div>
+
+        <h2>2.4 시스템 초기화</h2>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-content">웹앱 상단 메뉴에서 <strong>⚙️ 설정</strong> 탭을 클릭합니다.</div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-content"><strong>🔧 시스템 초기화</strong> 버튼을 클릭합니다.</div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-content">확인 팝업에서 '확인'을 누르면, 필요한 모든 시트가 구글 스프레드시트에 자동 생성됩니다.</div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-content">초기화 완료 후, 스프레드시트를 열어 각 마스터 시트에 데이터를 입력합니다.</div>
+          </div>
+        </div>
+        <div class="callout callout-tip">
+          ⚠️ 시스템 초기화는 이미 존재하는 시트는 건너뛰므로, 기존 데이터가 삭제되지 않습니다. 안심하고 실행해도 됩니다.
+        </div>
+
+        <h2>2.5 웹앱 배포 및 접속</h2>
+        <p>구글 Apps Script 편집기에서 배포 → 새 배포 → 웹 앱을 선택합니다. '액세스 권한이 있는 사용자'를 '나만' 또는 '조직 내 모든 사용자'로 설정한 후 배포합니다.</p>
+        <p>배포 후 생성된 URL로 접속하면 공구관리시스템 웹앱이 열립니다. 모바일 브라우저에서도 동일하게 사용할 수 있으며, 반응형 디자인이 적용되어 있습니다.</p>
+      </section>
+
+      <!-- ════════ 섹션: 마스터 데이터 ════════ -->
+      <section id="master" class="section">
+        <div class="section-hero">
+          <h1>📋 마스터 데이터 등록</h1>
+          <p>마스터 데이터는 시스템의 기반입니다. 반드시 캘린더 동기화 전에 먼저 등록하세요.</p>
+        </div>
+
+        <div class="callout callout-warn">
+          ⚠️ 마스터 데이터 입력 순서: <strong>업체마스터 → 셀러마스터 → 제품마스터</strong>. 캘린더 동기화 전에 완료해야 수수료율이 자동 매칭됩니다.
+        </div>
+
+        <h2>3.1 업체마스터</h2>
+        <table class="doc-table">
+          <thead><tr><th>컬럼명</th><th>필수</th><th>설명 및 입력 방법</th></tr></thead>
+          <tbody>
+            <tr><td>NO</td><td><span class="badge badge-optional">자동</span></td><td>행 번호입니다. 직접 입력하거나 비워두셔도 됩니다.</td></tr>
+            <tr><td>업체명</td><td><span class="badge badge-required">★ 필수</span></td><td>캘린더 일정의 업체명과 <strong>정확히</strong> 일치해야 합니다.</td></tr>
+            <tr><td>결제창</td><td><span class="badge badge-required">★ 필수</span></td><td>드롭다운: '제조사', '벤더사', '인플루언서' 중 선택</td></tr>
+            <tr><td>수수료율(셀러)</td><td><span class="badge badge-required">★ 필수</span></td><td>셀러에게 지급할 수수료 비율(%). 숫자만 입력. 예: 15 → 15%</td></tr>
+            <tr><td>수수료율(벤더)</td><td><span class="badge badge-required">★ 필수</span></td><td>우리(벤더) 수수료 비율(%). 숫자만 입력. 예: 5 → 5%</td></tr>
+            <tr><td>부가세구분</td><td><span class="badge badge-required">★ 필수</span></td><td>드롭다운에서 '포함' 또는 '별도' 선택. 기본값은 '포함'.</td></tr>
+            <tr><td>수수료방식(셀러)</td><td><span class="badge badge-optional">선택</span></td><td>드롭다운에서 '%' 또는 '원' 선택. 기본값은 '%'.</td></tr>
+            <tr><td>수수료방식(벤더)</td><td><span class="badge badge-optional">선택</span></td><td>드롭다운에서 '%' 또는 '원' 선택. 기본값은 '%'.</td></tr>
+            <tr><td>담당자명</td><td><span class="badge badge-optional">선택</span></td><td>업체 담당자 이름. 카톡 템플릿에서 자동 삽입됩니다.</td></tr>
+            <tr><td>연락처</td><td><span class="badge badge-optional">선택</span></td><td>업체 연락처. 카톡 템플릿에서 자동 삽입됩니다.</td></tr>
+            <tr><td>사업자번호</td><td><span class="badge badge-optional">선택</span></td><td>정산서에 자동 표시됩니다.</td></tr>
+            <tr><td>CS링크</td><td><span class="badge badge-optional">선택</span></td><td>고객 문의 페이지 URL. 카톡 템플릿에서 사용됩니다.</td></tr>
+          </tbody>
+        </table>
+
+        <h3>결제창 유형 이해</h3>
+        <div class="info-cards info-cards-3">
+          <div class="info-card info-card-accent">
+            <div class="info-card-title">🏭 제조사 (10단계)</div>
+            <div class="info-card-body">업체가 직접 결제를 받고, 우리에게 수수료를 지급합니다.</div>
+          </div>
+          <div class="info-card info-card-teal">
+            <div class="info-card-title">🏢 벤더사 (8단계)</div>
+            <div class="info-card-body">우리(벤더)가 결제를 받고, 업체에 정산금을 지급합니다.</div>
+          </div>
+          <div class="info-card info-card-gold">
+            <div class="info-card-title">👤 인플루언서 (6단계)</div>
+            <div class="info-card-body">셀러가 직접 결제를 받고, 업체에 정산금을 지급합니다.</div>
+          </div>
+        </div>
+
+        <h3>수수료율 계산 예시</h3>
+        <div class="callout callout-info">
+          💡 수수료율(셀러) = 15, 수수료율(벤더) = 5인 경우:<br>
+          총매출 100만원 → <strong>셀러마진 15만원, 벤더마진 5만원, 업체정산금 80만원</strong>
+        </div>
+
+        <h2>3.2 셀러마스터</h2>
+        <table class="doc-table">
+          <thead><tr><th>컬럼명</th><th>필수</th><th>설명 및 입력 방법</th></tr></thead>
+          <tbody>
+            <tr><td>셀러명</td><td><span class="badge badge-required">★ 필수</span></td><td>캘린더 일정과 정확히 일치해야 합니다.</td></tr>
+            <tr><td>정산유형</td><td><span class="badge badge-required">★ 필수</span></td><td>드롭다운: 사업자 / 현금영수증 / 3.3% / 베벤더</td></tr>
+            <tr><td>인스타그램</td><td><span class="badge badge-optional">선택</span></td><td>@아이디 또는 URL. 카톡 템플릿에서 자동 삽입됩니다.</td></tr>
+            <tr><td>연락처</td><td><span class="badge badge-optional">선택</span></td><td>전화번호. 샘플 발송 카톡에서 자동 삽입됩니다.</td></tr>
+            <tr><td>주소</td><td><span class="badge badge-optional">선택</span></td><td>샘플 수령 주소. 카톡 템플릿에서 자동 삽입됩니다.</td></tr>
+            <tr><td>수령인명</td><td><span class="badge badge-optional">선택</span></td><td>택배 수령인명. 셀러명과 다를 수 있습니다(매니저 등).</td></tr>
+            <tr><td>사업자번호</td><td><span class="badge badge-optional">선택</span></td><td>사업자인 경우 입력. 정산서에 표시됩니다.</td></tr>
+          </tbody>
+        </table>
+
+        <h3>정산유형 상세 설명</h3>
+        <div class="info-cards info-cards-4">
+          <div class="info-card">
+            <div class="info-card-title">🏢 사업자</div>
+            <div class="info-card-body">세금계산서를 발행받아 정산. 가장 일반적인 유형.</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-title">🧾 현금영수증</div>
+            <div class="info-card-body">현금영수증을 발행하여 정산. 사업자등록은 있으나 세금계산서가 어려운 경우.</div>
+          </div>
+          <div class="info-card info-card-accent">
+            <div class="info-card-title">📉 3.3% 원천징수</div>
+            <div class="info-card-body">프리랜서 원천징수. 정산금에서 3.3% 차감 후 지급. 홈 화면에 세무용 내역 자동 집계.</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-title">🏪 베벤더</div>
+            <div class="info-card-body">벤더사 형태의 셀러. 정산서 탭 이름이 '인플루언서' 대신 '베벤더'로 표시.</div>
+          </div>
+        </div>
+
+        <h2>3.3 제품마스터</h2>
+        <table class="doc-table">
+          <thead><tr><th>컬럼명</th><th>필수</th><th>설명 및 입력 방법</th></tr></thead>
+          <tbody>
+            <tr><td>업체명</td><td><span class="badge badge-required">★ 필수</span></td><td>업체마스터의 '업체명'과 정확히 동일하게 입력해야 합니다.</td></tr>
+            <tr><td>제품명</td><td><span class="badge badge-required">★ 필수</span></td><td>캘린더 일정의 제품명과 정확히 일치해야 합니다.</td></tr>
+            <tr><td>공구가</td><td><span class="badge badge-required">★ 필수</span></td><td>소비자 판매가격. 숫자만 입력. 예: 29900</td></tr>
+            <tr><td>모델옵션</td><td><span class="badge badge-optional">선택</span></td><td>옵션, 용량, 색상 등. 예: 30ml, 레몬맛, 블랙</td></tr>
+            <tr><td>공급가</td><td><span class="badge badge-optional">선택</span></td><td>업체에서 받는 원가. 숫자만 입력(쉼표 없이). 예: 15000</td></tr>
+            <tr><td>수수료율(셀러/벤더)</td><td><span class="badge badge-optional">선택</span></td><td>비워두면 업체마스터 값을 사용합니다. 제품별 다를 때만 입력.</td></tr>
+          </tbody>
+        </table>
+        <div class="callout callout-tip">
+          💡 하나의 업체에 여러 제품이 있을 때, 제품마다 수수료율을 다르게 설정할 수 있습니다. 판매입력 화면에서도 품목별로 수정 가능합니다.
+        </div>
+
+        <h2>3.4 서류보관 폴더 → 마스터 자동등록</h2>
+        <p>서류보관 폴더(DOCUMENT_FOLDER_ID)에 '업체' 또는 '셀러' 하위 폴더를 만들면, 캘린더 동기화 시 해당 폴더명이 마스터 시트에 자동 등록됩니다.</p>
+      </section>
+
+      <!-- ════════ 섹션: 캘린더 동기화 ════════ -->
+      <section id="calendar" class="section">
+        <div class="section-hero">
+          <h1>📅 캘린더 동기화</h1>
+          <p>구글 캘린더 일정을 등록하고 동기화하면 공구 워크플로우가 자동 생성됩니다.</p>
+        </div>
+
+        <h2>4.1 캘린더 일정 작성 규칙</h2>
+        <div class="callout callout-accent">
+          📌 <strong>형식: 셀러명-업체명-제품명</strong><br><br>
+          예시:<br>
+          · 홍길동-뷰티솔루션-비타민C 세럼<br>
+          · 김영희-헬스팜-프로바이오틱스<br>
+          · 박민수-푸드마켓-닭가슴살 세트
+        </div>
+        <div class="callout callout-warn">
+          ⚠️ 하이픈(-)이 3개 부분(셀러-업체-제품)을 구분하는 역할을 합니다. 제품명에 하이픈이 포함된 경우 자동으로 처리됩니다(첫 번째 하이픈 = 셀러/업체 구분, 두 번째 이후 = 제품명에 포함).
+        </div>
+
+        <h2>4.2 동기화 실행</h2>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-content">웹앱 <strong>홈</strong> 화면에서 <strong>🔄 캘린더&폴더 동기화</strong> 버튼을 클릭합니다.</div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-content">확인 팝업에서 '확인'을 누릅니다.</div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-content">동기화 완료 후 결과 알림 확인:<br>
+              · 📋 공구 일정: 총 N개 (신규 N, 업데이트 N)<br>
+              · 🚫 제외된 일정: N개<br>
+              · 📁 마스터 등록: 업체 N개, 셀러 N개 신규 등록
+            </div>
+          </div>
+        </div>
+
+        <h2>4.3 자동 매칭 원리</h2>
+        <div class="steps-list">
+          <div class="step-item"><div class="step-num">1</div><div class="step-content">캘린더 일정 제목에서 셀러명/업체명/제품명을 파싱합니다.</div></div>
+          <div class="step-item"><div class="step-num">2</div><div class="step-content">업체마스터에서 업체명이 일치하는 행을 찾아 결제창, 수수료율, 부가세구분 등을 가져옵니다.</div></div>
+          <div class="step-item"><div class="step-num">3</div><div class="step-content">셀러마스터에서 셀러명이 일치하는 행을 찾아 정산유형, 인스타그램, 주소 등을 가져옵니다.</div></div>
+          <div class="step-item"><div class="step-num">4</div><div class="step-content">제품마스터에서 업체명+제품명이 일치하는 행을 찾아 품목별 수수료율을 가져옵니다.</div></div>
+          <div class="step-item"><div class="step-num">5</div><div class="step-content">이 정보를 결합하여 정산워크플로우 시트에 하나의 행을 생성합니다.</div></div>
+        </div>
+
+        <h2>4.4 제외 키워드</h2>
+        <p>다음 조건의 캘린더 일정은 자동으로 제외됩니다.</p>
+        <ul class="doc-list">
+          <li><strong>하이픈 없음</strong>: 제목에 하이픈(-)이 하나도 없는 일정</li>
+          <li><strong>제외 키워드 포함</strong>: 회의, 미팅, 점심, 저녁, 식사, 면담, 통화, 전화, 휴가, 연차, 병가, 출장, 세미나, 워크숍, 송년회, 신년회, 생일, 기념일, 명절</li>
+        </ul>
+      </section>
+
+      <!-- ════════ 섹션: 홈 대시보드 ════════ -->
+      <section id="home" class="section">
+        <div class="section-hero">
+          <h1>🏠 홈 대시보드</h1>
+          <p>웹앱에 접속하면 가장 먼저 표시되는 화면입니다. 전체 공구 현황을 한눈에 파악할 수 있습니다.</p>
+        </div>
+
+        <h2>5.1 요약 카드 6종</h2>
+        <table class="doc-table">
+          <thead><tr><th>카드</th><th>아이콘</th><th>설명</th></tr></thead>
+          <tbody>
+            <tr><td>전체 공구</td><td>📦</td><td>2026년 이후 등록된 전체 공구 건수</td></tr>
+            <tr><td>진행중</td><td>🔥</td><td>현재 공구 기간 중인 건수 (개시일 ≤ 오늘 ≤ 종료일)</td></tr>
+            <tr><td>정산대기</td><td>💰</td><td>공구 종료 후 아직 정산이 시작되지 않은 건수</td></tr>
+            <tr><td>샘플대기</td><td>📮</td><td>샘플이 아직 도착하지 않은 건수 (해당없음 제외)</td></tr>
+            <tr><td>총 매출</td><td>💵</td><td>모든 공구의 총매출 합계 (금액)</td></tr>
+            <tr><td>총 이익</td><td>📈</td><td>모든 공구의 벤더마진 합계 (비용 차감 후)</td></tr>
+          </tbody>
+        </table>
+
+        <h2>5.2 빠른 작업 버튼</h2>
+        <ul class="doc-list">
+          <li>🔄 캘린더&폴더 동기화 — 캘린더 일정과 서류 폴더를 동기화합니다.</li>
+          <li>💵 판매입력 — 판매입력 탭으로 이동합니다.</li>
+          <li>✅ 정산체크리스트 — 정산 체크리스트 탭으로 이동합니다.</li>
+          <li>💬 카톡 템플릿 — 카카오톡 메시지 템플릿 탭으로 이동합니다.</li>
+          <li>📦 샘플관리 — 샘플 관리 탭으로 이동합니다.</li>
+          <li>📋 정산서생성 — 정산서 생성 탭으로 이동합니다.</li>
+          <li>📊 공구매출 — 공구매출 탭으로 이동합니다.</li>
+        </ul>
+
+        <h2>5.3 월별 매출 현황 표</h2>
+        <p>2026년 전체 공구를 월별로 집계한 표입니다. 각 월의 건수, 총매출, 비율 막대 그래프(가장 높은 월 대비 비율), 벤더마진이 표시됩니다.</p>
+
+        <h2>5.4 업체별·셀러별 TOP 5</h2>
+        <p>총매출 기준으로 상위 5개 업체와 셀러를 나란히 보여줍니다. 각각 순위(🥇🥈🥉), 이름, 건수, 총매출이 표시됩니다.</p>
+
+        <h2>5.5 3.3% 원천징수 내역</h2>
+        <p>정산유형이 '3.3%'인 셀러의 정산완료 내역만 모아 보여줍니다. <strong>세무신고 시 필요한 자료입니다.</strong></p>
+        <p>표시 항목: 월, 셀러명, 제품명, 총매출, 수수료(셀러마진), 원천징수액(3.3%), 실지급액. 월별 소계와 연간 합계가 자동 계산됩니다.</p>
+        <div class="callout callout-tip">
+          ※ 이 표는 공구매출 데이터에서 직접 가져오므로, 판매입력과 정산완료 처리가 되어야 표시됩니다.
+        </div>
+      </section>
+
+      <!-- ════════ 섹션: 공구매출 탭 ════════ -->
+      <section id="sales-overview" class="section">
+        <div class="section-hero">
+          <h1>📊 공구매출 탭</h1>
+          <p>모든 공구의 매출 현황을 엑셀 형태의 테이블로 보여주는 핵심 탭입니다.</p>
+        </div>
+
+        <h2>6.1 화면 구성</h2>
+        <ul class="doc-list">
+          <li><strong>연도 필터</strong>: 데이터가 있는 연도만 표시됩니다. 기본값은 현재 연도.</li>
+          <li><strong>월 필터</strong>: '전체보기' 또는 특정 월 선택. 현재 연도는 이번 달이 기본 선택.</li>
+          <li>테이블은 월별로 그룹핑되어 표시됩니다. 각 월 시작에 보라색 헤더가 표시됩니다.</li>
+        </ul>
+
+        <h2>6.2 컬럼 설명 (19개)</h2>
+        <table class="doc-table">
+          <thead><tr><th>컬럼</th><th>설명</th></tr></thead>
+          <tbody>
+            <tr><td>월</td><td>공구 개시월 (예: 1월, 2월)</td></tr>
+            <tr><td>NO</td><td>전체 공구 순번</td></tr>
+            <tr><td>개시일 / 종료일</td><td>공구 시작일 / 종료일 (월/일 형식)</td></tr>
+            <tr><td>정산예정</td><td>종료일 + 14일 자동 계산</td></tr>
+            <tr><td>정산완료</td><td>실제 정산 완료일 (체크리스트 최종 단계 완료 시 자동 기록)</td></tr>
+            <tr><td>총매출</td><td>총 판매금액</td></tr>
+            <tr><td>셀러마진</td><td>셀러에게 지급할 금액</td></tr>
+            <tr><td>판매수수료</td><td>PG수수료 + 배송비 + 기타비용의 합계</td></tr>
+            <tr><td>벤더마진</td><td>벤더(당사) 수익 = 총매출 × 벤더% - 비용합계</td></tr>
+            <tr><td>이익률</td><td>벤더마진 ÷ 총매출 × 100</td></tr>
+            <tr><td>상태</td><td>예정 / 진행중 / 정산대기 / 정산중(N/N) / 정산완료</td></tr>
+          </tbody>
+        </table>
+
+        <h2>6.3 상태값 이해</h2>
+        <div class="status-grid">
+          <div class="status-item status-scheduled">예정</div>
+          <div class="status-desc">개시일이 오늘보다 미래인 경우</div>
+          <div class="status-item status-active">진행중</div>
+          <div class="status-desc">오늘이 개시일과 종료일 사이인 경우</div>
+          <div class="status-item status-pending">정산대기</div>
+          <div class="status-desc">종료일이 지났으나 정산을 아직 시작하지 않은 경우</div>
+          <div class="status-item status-progress">정산중(N/N)</div>
+          <div class="status-desc">정산 체크리스트가 진행 중인 경우 (예: 3/10 = 10단계 중 3단계 완료)</div>
+          <div class="status-item status-done">정산완료</div>
+          <div class="status-desc">체크리스트 모든 단계가 완료되었거나 정산완료일이 기록된 경우</div>
+        </div>
+
+        <h2>6.4 구글시트 동기화</h2>
+        <p><strong>📄 구글시트 동기화</strong> 버튼을 클릭하면, 공구매출 데이터가 구글 스프레드시트의 '공구매출현황' 시트에 서식이 적용된 엑셀 스타일로 자동 생성됩니다.</p>
+
+        <h2>6.5 정산완료 되돌리기</h2>
+        <p>정산완료된 공구의 상태 옆에 작은 <strong>↩</strong> 버튼이 표시됩니다. 클릭하면 정산완료를 취소하고 마지막 단계 직전으로 되돌릴 수 있습니다.</p>
+      </section>
+
+      <!-- ════════ 섹션: 판매입력 ════════ -->
+      <section id="sales-input" class="section">
+        <div class="section-hero">
+          <h1>💵 판매입력 탭</h1>
+          <p>공구별로 품목별 판매수량을 입력하고, 마진을 자동 계산하는 핵심 기능입니다.</p>
+        </div>
+
+        <h2>7.1 공구 선택 및 제품 목록 로드</h2>
+        <div class="steps-list">
+          <div class="step-item"><div class="step-num">1</div><div class="step-content"><strong>공구 선택</strong> 드롭다운에서 공구를 선택합니다. 월별로 그룹핑, 최신 월이 위에 표시됩니다.</div></div>
+          <div class="step-item"><div class="step-num">2</div><div class="step-content">공구를 선택하면 해당 업체의 제품이 제품마스터에서 자동으로 로드됩니다.</div></div>
+        </div>
+
+        <h2>7.2 품목별 판매수량 입력</h2>
+        <table class="doc-table">
+          <thead><tr><th>컬럼</th><th>설명</th></tr></thead>
+          <tbody>
+            <tr><td>제품명</td><td>제품마스터에서 가져온 제품명</td></tr>
+            <tr><td>모델/옵션</td><td>모델명이나 옵션(30ml, 레몬맛 등)</td></tr>
+            <tr><td>공구가</td><td>소비자 판매가격</td></tr>
+            <tr><td>셀러%</td><td>셀러 수수료율 (편집 가능한 입력칸)</td></tr>
+            <tr><td>벤더%</td><td>벤더 수수료율 (편집 가능한 입력칸)</td></tr>
+            <tr><td>판매수량</td><td>숫자를 직접 입력합니다 (편집 가능)</td></tr>
+            <tr><td>소계</td><td>공구가 × 판매수량 (자동 계산)</td></tr>
+          </tbody>
+        </table>
+
+        <h2>7.3 마진 자동계산 원리</h2>
+        <div class="formula-box">
+          <div class="formula-title">💰 마진 계산 공식</div>
+          <div class="formula-line">소계 = <span class="formula-hl">공구가 × 판매수량</span></div>
+          <div class="formula-line">셀러마진 = <span class="formula-hl">소계 × 셀러%</span></div>
+          <div class="formula-line">벤더총수익 = <span class="formula-hl">소계 × 벤더%</span></div>
+          <div class="formula-line">벤더마진 = <span class="formula-hl2">벤더총수익 - (PG수수료 + 배송비 + 기타비용)</span></div>
+          <div class="formula-line">업체정산금 = <span class="formula-hl3">총매출 - 셀러마진 - 벤더총수익 - 비용합계</span></div>
+        </div>
+
+        <h2>7.4 비용 입력</h2>
+        <ul class="doc-list">
+          <li><strong>PG수수료</strong>: 스마트스토어, 네이버페이 등 결제 플랫폼 수수료</li>
+          <li><strong>배송비</strong>: 배송 관련 비용</li>
+          <li><strong>기타비용</strong>: 기타 발생 비용</li>
+        </ul>
+        <div class="callout callout-tip">
+          💡 이 비용들은 내부 손익계산용이며, 외부 정산서에는 표시되지 않습니다.
+        </div>
+
+        <h2>7.5 부가세 별도 계산기</h2>
+        <p>업체마스터에서 부가세구분이 '별도'로 설정된 업체의 공구를 선택하면, 🧾 부가세 별도 업체 체크박스가 자동으로 체크되고 계산기가 활성화됩니다.</p>
+        <ul class="doc-list">
+          <li>업체정산금(공급가액): 총매출 - 셀러마진 - 벤더마진 - 비용</li>
+          <li>부가세(10%): 공급가액 × 10%</li>
+          <li>업체 실지급액(VAT포함): 공급가액 + 부가세</li>
+          <li>벤더순마진(VAT차감): 벤더마진 - 부가세</li>
+        </ul>
+      </section>
+
+      <!-- ════════ 섹션: 정산 체크리스트 ════════ -->
+      <section id="checklist" class="section">
+        <div class="section-hero">
+          <h1>✅ 정산 체크리스트 탭</h1>
+          <p>공구 종료 후 정산 과정을 단계별로 추적하는 기능입니다.</p>
+        </div>
+
+        <h2>8.1 결제창별 단계 비교표</h2>
+        <table class="doc-table">
+          <thead><tr><th>단계</th><th>제조사 (10단계)</th><th>벤더사 (8단계)</th><th>인플루언서 (6단계)</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>내부 정산서 작성</td><td>판매현황 집계</td><td>판매현황 집계</td></tr>
+            <tr><td>2</td><td>제조사 정산 요청 접수</td><td>제조사에 정산서 전달</td><td>인플루언서에 정산 요청</td></tr>
+            <tr><td>3</td><td>발송내역/금액 확인</td><td>제조사 세금계산서 요청</td><td>인플루언서 입금 확인</td></tr>
+            <tr><td>4</td><td>제조사에 정산서 전달</td><td>제조사 입금 완료</td><td>제조사에 정산서 전달</td></tr>
+            <tr><td>5</td><td>세금계산서 수령 확인</td><td>인플루언서 정산서 공유/확인</td><td>제조사 입금 완료</td></tr>
+            <tr><td>6</td><td>제조사 입금 확인</td><td>인플루언서 세금계산서/현금영수증</td><td>완료 ✓</td></tr>
+            <tr><td>7</td><td>인플루언서 정산서 공유/확인</td><td>인플루언서 입금</td><td>—</td></tr>
+            <tr><td>8</td><td>인플루언서 세금계산서/현금영수증</td><td>완료 ✓</td><td>—</td></tr>
+            <tr><td>9</td><td>인플루언서 입금</td><td>—</td><td>—</td></tr>
+            <tr><td>10</td><td>완료 ✓</td><td>—</td><td>—</td></tr>
+          </tbody>
+        </table>
+
+        <h2>8.2 매트릭스 테이블 읽는 법</h2>
+        <ul class="doc-list">
+          <li><strong>✓ (초록색 배경)</strong>: 완료된 단계</li>
+          <li><strong>[체크] 버튼 (파란색)</strong>: 현재 진행할 단계. 클릭하면 완료 처리됩니다.</li>
+          <li><strong>○ (회색)</strong>: 아직 도달하지 않은 미래 단계</li>
+          <li><strong>-</strong>: 해당 결제창 유형에 없는 단계</li>
+        </ul>
+
+        <div class="callout callout-warn">
+          ⚠️ 단계는 순서대로만 진행할 수 있습니다. 이전 단계를 건너뛰고 다음 단계를 완료할 수 없습니다.
+        </div>
+
+        <h2>8.3 단계 되돌리기</h2>
+        <p>테이블에서 행을 클릭하면 하단에 상세 패널이 열립니다. 이미 완료된 단계의 '완료됨' 버튼을 클릭하면 해당 단계를 되돌릴 수 있습니다.</p>
+
+        <h2>8.4 💬 카톡 연결</h2>
+        <p>행을 클릭하면 표시되는 상세 패널에서 각 단계별로 💬 버튼을 클릭하면 해당 단계에 맞는 카톡 템플릿이 공구 정보가 자동으로 입력된 상태로 열립니다.</p>
+
+        <h2>8.5 최종 단계 완료 → 자동 정산완료일 기록</h2>
+        <div class="steps-list">
+          <div class="step-item"><div class="step-num">1</div><div class="step-content">오늘 날짜가 정산완료일로 자동 기록됩니다.</div></div>
+          <div class="step-item"><div class="step-num">2</div><div class="step-content">'🎉 모든 정산 단계가 완료되었습니다!' 알림이 표시됩니다.</div></div>
+          <div class="step-item"><div class="step-num">3</div><div class="step-content">공구 상태가 '정산완료'로 변경되고, 공구매출 탭에서 회색으로 표시됩니다.</div></div>
+          <div class="step-item"><div class="step-num">4</div><div class="step-content">체크리스트 탭에서는 해당 공구가 더 이상 표시되지 않습니다.</div></div>
+        </div>
+      </section>
+
+      <!-- ════════ 섹션: 카톡 템플릿 ════════ -->
+      <section id="kakao" class="section">
+        <div class="section-hero">
+          <h1>💬 카톡 템플릿 탭</h1>
+          <p>업체와 셀러에게 보낼 카카오톡 메시지를 빠르게 생성합니다. 72개 템플릿이 7단계로 분류되어 있습니다.</p>
+        </div>
+
+        <h2>9.1 72개 템플릿 구조</h2>
+        <table class="doc-table">
+          <thead><tr><th>단계</th><th>개수</th><th>주요 내용</th></tr></thead>
+          <tbody>
+            <tr><td>① 샘플</td><td>10개</td><td>주소 확인, 발송 요청, 도착 확인, 회수, 불량 재발송 등</td></tr>
+            <tr><td>② 공구 준비</td><td>14개</td><td>일정 확정/조율, 링크 전달, 오픈 시간, 리마인더, 상세페이지, 취소, CS링크 등</td></tr>
+            <tr><td>③ 공구 진행</td><td>11개</td><td>판매현황 요청/공유, 마감 안내/결과, 주문 취합, 연장, 품절 등</td></tr>
+            <tr><td>④ 발주/배송</td><td>2개</td><td>발주서 전달, 송장번호 요청</td></tr>
+            <tr><td>⑤ 정산</td><td>16개</td><td>정산 요청(제조사/벤더사), 정산서 전달, 세금계산서, 입금 확인, 원천징수 등</td></tr>
+            <tr><td>⑥ CS/이슈</td><td>12개</td><td>불량 교환, 반품, 환불, 배송 누락, 오배송, 일정 변경, 취소, 클레임 등</td></tr>
+            <tr><td>⑦ 관계 유지</td><td>7개</td><td>재공구 제안, 신제품 소개, 결과 리포트, 감사 인사, 명절 인사, 섭외, 신상품 문의</td></tr>
+          </tbody>
+        </table>
+
+        <h2>9.2 공구 선택 → 변수 자동 치환</h2>
+        <p>템플릿 카드를 클릭하고 공구를 선택하면 변수가 자동 치환됩니다.</p>
+        <div class="tag-cloud">
+          <span class="tag">{{셀러명}}</span><span class="tag">{{업체명}}</span><span class="tag">{{제품명}}</span>
+          <span class="tag">{{공구시작일}}</span><span class="tag">{{공구종료일}}</span>
+          <span class="tag">{{시작요일}}</span><span class="tag">{{종료요일}}</span>
+          <span class="tag">{{정산예정일}}</span><span class="tag">{{총매출}}</span>
+          <span class="tag">{{수령인명}}</span><span class="tag">{{연락처}}</span>
+          <span class="tag">{{주소}}</span><span class="tag">{{업체연락처}}</span>
+          <span class="tag">{{CS링크}}</span><span class="tag">{{인스타링크}}</span>
+        </div>
+        <div class="callout callout-tip">
+          ※ {{오늘판매}}, {{송장번호}} 등 자동 치환이 불가한 변수는 {{변수명}} 형태로 남아 있습니다. 복사 후 직접 수정하세요.
+        </div>
+
+        <h2>9.3 정산 체크리스트에서 💬 버튼으로 바로 연결</h2>
+        <p>정산 체크리스트의 상세 패널에서 💬 버튼을 클릭하면, 해당 단계에 맞는 카톡 템플릿이 공구 정보가 이미 입력된 상태로 바로 열립니다. 별도로 공구를 선택할 필요가 없습니다.</p>
+      </section>
+
+      <!-- ════════ 섹션: 정산서 생성 ════════ -->
+      <section id="settlement" class="section">
+        <div class="section-hero">
+          <h1>📋 정산서 생성 탭</h1>
+          <p>공구별 정산서를 자동으로 생성하여 엑셀(.xlsx) 파일로 다운로드할 수 있습니다.</p>
+        </div>
+
+        <h2>10.1 정산서 생성 순서</h2>
+        <div class="steps-list">
+          <div class="step-item"><div class="step-num">1</div><div class="step-content"><strong>공구 선택</strong> 드롭다운에서 정산서를 생성할 공구를 선택합니다.</div></div>
+          <div class="step-item"><div class="step-num">2</div><div class="step-content">즉시 정산서 <strong>미리보기</strong>가 표시됩니다. 총매출, 마진, 업체정산금, VAT 정보를 확인합니다.</div></div>
+          <div class="step-item"><div class="step-num">3</div><div class="step-content">내용을 확인하고 <strong>📋 정산서 생성</strong> 버튼을 클릭합니다.</div></div>
+          <div class="step-item"><div class="step-num">4</div><div class="step-content">서류 폴더에 업체/셀러 서류가 없으면 경고가 표시됩니다. 그래도 생성을 계속할 수 있습니다.</div></div>
+          <div class="step-item"><div class="step-num">5</div><div class="step-content">생성 완료 후 <strong>📥 엑셀 다운로드</strong>. 생성된 목록에서 언제든지 재다운로드 가능합니다.</div></div>
+        </div>
+
+        <h2>10.2 정산서 구성 (4개 탭)</h2>
+        <div class="info-cards info-cards-4">
+          <div class="info-card">
+            <div class="info-card-title">📑 요약 탭</div>
+            <div class="info-card-body">내부용. 정산 요약 + 손익분석. 수식으로 연결되어 자동 재계산. <strong>외부 공유 금지.</strong></div>
+          </div>
+          <div class="info-card info-card-accent">
+            <div class="info-card-title">🏭 제조사 탭</div>
+            <div class="info-card-body">업체 전달용. 품목별 수량·금액·정산금액 표시. 결제창 유형에 따라 계산 방식 다름.</div>
+          </div>
+          <div class="info-card info-card-teal">
+            <div class="info-card-title">👤 인플루언서 탭</div>
+            <div class="info-card-body">셀러 전달용. 수수료·원천징수·최종지급액 표시. 3.3% 셀러는 원천세 자동 차감.</div>
+          </div>
+          <div class="info-card info-card-gold">
+            <div class="info-card-title">📎 서류첨부 탭</div>
+            <div class="info-card-body">드라이브 서류보관 폴더의 이미지 자동 삽입. 서류 없으면 탭이 생성되지 않음.</div>
+          </div>
+        </div>
+
+        <h2>10.3 부가세 별도 업체 처리</h2>
+        <p>부가세구분이 '별도'인 경우 정산서에 자동으로 추가됩니다.</p>
+        <ul class="doc-list">
+          <li>판매가(VAT제외) 컬럼 추가: 판매가를 1.1로 나눈 값</li>
+          <li>판매액(VAT제외) 컬럼 추가: 수량 × VAT제외 판매가</li>
+          <li>합계 아래에 공급가액, VAT(10%), 합계(VAT포함) 3행 추가</li>
+        </ul>
+      </section>
+
+      <!-- ════════ 섹션: 샘플관리 ════════ -->
+      <section id="sample" class="section">
+        <div class="section-hero">
+          <h1>📦 샘플관리 탭</h1>
+          <p>공구 전 샘플 발송/수령/회수 과정을 추적합니다.</p>
+        </div>
+
+        <h2>11.1 샘플 워크플로우</h2>
+        <div class="flow-diagram flow-diagram-sm">
+          <div class="flow-step"><div class="flow-icon">📤</div><div class="flow-label">샘플요청</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><div class="flow-icon">🚚</div><div class="flow-label">샘플발송</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><div class="flow-icon">📬</div><div class="flow-label">샘플도착</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><div class="flow-icon">↩️</div><div class="flow-label">회수요청</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><div class="flow-icon">✅</div><div class="flow-label">회수완료</div></div>
+        </div>
+
+        <h2>11.2 D-day 표시</h2>
+        <table class="doc-table">
+          <thead><tr><th>D-day</th><th>색상</th><th>의미</th></tr></thead>
+          <tbody>
+            <tr><td>D-7 이내</td><td><span style="color:#E84855; font-weight:700;">빨간색</span></td><td>긴급. 샘플이 아직 도착하지 않았다면 빠르게 처리해야 합니다.</td></tr>
+            <tr><td>D-14 이내</td><td><span style="color:#D4600A; font-weight:700;">주황색</span></td><td>주의. 곧 공구가 시작됩니다.</td></tr>
+            <tr><td>D-14 초과</td><td><span style="color:#2D8A5E; font-weight:700;">초록색</span></td><td>여유 있음.</td></tr>
+            <tr><td>D-Day</td><td><span style="color:#E84855; font-weight:700;">빨간색</span></td><td>공구 시작일 당일.</td></tr>
+            <tr><td>종료</td><td><span style="color:#7A7A8C;">회색</span></td><td>개시일이 이미 지남.</td></tr>
+          </tbody>
+        </table>
+
+        <h2>11.3 날짜 기록 / 수정 / 삭제</h2>
+        <ul class="doc-list">
+          <li><strong>기록</strong>: 각 단계 버튼 클릭 → 날짜 입력 팝업 (기본값: 오늘 날짜, YYYY-MM-DD 형식)</li>
+          <li><strong>수정</strong>: 초록색 날짜 클릭 → 수정 팝업. 새 날짜 입력 또는 '삭제' 입력으로 삭제</li>
+          <li><strong>삭제</strong>: '삭제' 입력 시 해당 단계와 이후 단계의 날짜가 모두 초기화됩니다.</li>
+        </ul>
+
+        <h2>11.4 해당없음 처리</h2>
+        <p>2차 공구 등 샘플이 필요 없는 경우, <strong>[해당없음]</strong> 버튼을 클릭합니다. 확인 후 해당 공구가 샘플 관리 목록에서 제거됩니다.</p>
+      </section>
+
+      <!-- ════════ 섹션: 매출목표 ════════ -->
+      <section id="target" class="section">
+        <div class="section-hero">
+          <h1>🎯 매출목표 탭</h1>
+          <p>연간/월별 매출 목표를 설정하고 달성률을 추적합니다.</p>
+        </div>
+
+        <h2>12.1 연간/월별 목표 설정</h2>
+        <ul class="doc-list">
+          <li><strong>연간 목표</strong>: 게이지바 영역의 금액 옆 ✏️ 아이콘 클릭 → 총액 입력 → 12개월 균등 배분. 이후 월별 개별 수정 가능.</li>
+          <li><strong>월별 목표</strong>: 월별 표에서 목표매출 금액 클릭 → 팝업에서 수정.</li>
+        </ul>
+
+        <h2>12.2 달성률 게이지바</h2>
+        <table class="doc-table">
+          <thead><tr><th>색상</th><th>달성률</th><th>의미</th></tr></thead>
+          <tbody>
+            <tr><td><span style="color:#2D8A5E; font-weight:700;">초록색</span></td><td>100% 이상</td><td>목표 달성</td></tr>
+            <tr><td><span style="color:#D4600A; font-weight:700;">주황색</span></td><td>70~99%</td><td>달성 근접</td></tr>
+            <tr><td><span style="color:#E84855; font-weight:700;">빨간색</span></td><td>70% 미만</td><td>미달성</td></tr>
+          </tbody>
+        </table>
+
+        <h2>12.3 월별 목표 vs 실적 표</h2>
+        <ul class="doc-list">
+          <li><strong>목표매출</strong>: 직접 설정한 목표 금액 (클릭하여 수정 가능)</li>
+          <li><strong>예상매출</strong>: 공구현황표에서 입력한 공구별 예상매출의 합계</li>
+          <li><strong>실제매출</strong>: 판매입력에서 저장된 실제 매출의 합계</li>
+        </ul>
+
+        <h2>12.4 엑셀 다운로드</h2>
+        <p>📥 엑셀 다운로드 버튼 클릭 → 2개 시트 포함:</p>
+        <ul class="doc-list">
+          <li><strong>공구현황</strong>: 월, 공구명, 업체, 셀러, 예상매출, 실제매출, 달성률, 비고</li>
+          <li><strong>월별요약</strong>: 월, 목표매출, 실제매출, 달성률, 공구건수</li>
+        </ul>
+      </section>
+
+      <!-- ════════ 섹션: 설정 및 관리 ════════ -->
+      <section id="system" class="section">
+        <div class="section-hero">
+          <h1>🔧 설정 및 관리</h1>
+          <p>시스템 운영에 필요한 설정 정보입니다.</p>
+        </div>
+
+        <h2>13.1 자동 생성 시트 목록</h2>
+        <table class="doc-table">
+          <thead><tr><th>시트명</th><th>용도</th><th>특이사항</th></tr></thead>
+          <tbody>
+            <tr><td>업체마스터</td><td>업체 기본 정보 관리</td><td>가이드행+샘플 포함, 드롭다운 적용</td></tr>
+            <tr><td>셀러마스터</td><td>셀러 기본 정보 관리</td><td>가이드행+샘플 포함, 드롭다운 적용</td></tr>
+            <tr><td>제품마스터</td><td>제품별 가격/수수료 관리</td><td>가이드행+샘플 포함</td></tr>
+            <tr><td>정산워크플로우</td><td>공구별 전체 정보 (캘린더 동기화)</td><td>캘린더 동기화 시 자동 생성/갱신</td></tr>
+            <tr><td>판매입력</td><td>품목별 판매수량 기록</td><td>판매입력 탭에서 자동 기록</td></tr>
+            <tr><td>카톡템플릿</td><td>72개 카톡 메시지 템플릿</td><td>시트 없으면 기본 템플릿 사용</td></tr>
+            <tr><td>정산총괄</td><td>생성된 정산서 목록</td><td>정산서 생성 시 자동 기록</td></tr>
+            <tr><td>공구매출현황</td><td>엑셀 스타일 매출 현황표</td><td>서식 포함 자동 생성</td></tr>
+            <tr><td>매출목표</td><td>월별 매출 목표</td><td>올해 12개월 기본 행 포함</td></tr>
+          </tbody>
+        </table>
+
+        <h2>13.2 캘린더&폴더 동기화 상세</h2>
+        <div class="steps-list">
+          <div class="step-item"><div class="step-num">1</div><div class="step-content">설정된 모든 캘린더에서 2026-01-01부터 현재 월+6개월까지의 이벤트를 수집합니다.</div></div>
+          <div class="step-item"><div class="step-num">2</div><div class="step-content">하이픈 없음, 제외 키워드 포함 일정을 필터링합니다.</div></div>
+          <div class="step-item"><div class="step-num">3</div><div class="step-content">각 일정의 제목을 파싱하여 셀러/업체/제품을 추출합니다.</div></div>
+          <div class="step-item"><div class="step-num">4</div><div class="step-content">마스터 시트에서 매칭하여 수수료율, 결제창, 정산유형 등을 가져옵니다.</div></div>
+          <div class="step-item"><div class="step-num">5</div><div class="step-content">기존 워크플로우가 있으면 업데이트하고(캘린더ID 기준), 없으면 새로 생성합니다.</div></div>
+          <div class="step-item"><div class="step-num">6</div><div class="step-content">정산워크플로우 시트를 전체 갱신합니다(삭제 후 재생성).</div></div>
+          <div class="step-item"><div class="step-num">7</div><div class="step-content">서류보관 폴더의 하위 폴더명으로 마스터 시트에 신규 등록합니다.</div></div>
+          <div class="step-item"><div class="step-num">8</div><div class="step-content">공구매출현황 시트를 자동 업데이트합니다.</div></div>
+        </div>
+        <div class="callout callout-warn">
+          ⚠️ 동기화 시 정산워크플로우 시트가 전체 재생성됩니다. 단, 기존 워크플로우의 총매출, 현재단계, 정산완료일, 비용 등 수동 입력 데이터는 캘린더ID 기준으로 보존됩니다.
+        </div>
+
+        <h2>13.3 시트 탭 자동 정렬 순서</h2>
+        <p>동기화 또는 시트 업데이트 시 시트 탭이 다음 순서로 자동 정렬됩니다:</p>
+        <div class="order-chips">
+          <span class="chip">① 공구매출현황</span>
+          <span class="chip">② 정산워크플로우</span>
+          <span class="chip">③ 정산총괄</span>
+          <span class="chip">④ 판매입력</span>
+          <span class="chip">⑤ 업체마스터</span>
+          <span class="chip">⑥ 셀러마스터</span>
+          <span class="chip">⑦ 제품마스터</span>
+          <span class="chip">⑧ 샘플관리</span>
+          <span class="chip">⑨ 카톡템플릿</span>
+          <span class="chip">⑩ 카톡이력</span>
+        </div>
+      </section>
+
+      <!-- ════════ 섹션: 실전 시나리오 ════════ -->
+      <section id="scenarios" class="section">
+        <div class="section-hero">
+          <h1>🗺️ 실전 시나리오</h1>
+          <p>가장 흔한 업무 흐름을 처음부터 끝까지 따라가 봅니다.</p>
+        </div>
+
+        <h2>14.1 신규 공구 등록부터 정산완료까지</h2>
+        <div class="scenario-flow">
+          <div class="scenario-step">
+            <div class="scenario-num">①</div>
+            <div class="scenario-title">마스터 등록</div>
+            <div class="scenario-desc">새 업체/셀러/제품이라면 각 마스터 시트에 먼저 등록합니다.</div>
+          </div>
+          <div class="scenario-step">
+            <div class="scenario-num">②</div>
+            <div class="scenario-title">캘린더 일정 등록</div>
+            <div class="scenario-desc">'홍길동-뷰티솔루션-비타민C 세럼' 형식으로 등록. 시작일과 종료일 설정.</div>
+          </div>
+          <div class="scenario-step">
+            <div class="scenario-num">③</div>
+            <div class="scenario-title">캘린더 동기화</div>
+            <div class="scenario-desc">홈 → 🔄 캘린더&폴더 동기화. 신규 1건 확인 시 성공.</div>
+          </div>
+          <div class="scenario-step">
+            <div class="scenario-num">④</div>
+            <div class="scenario-title">샘플 관리</div>
+            <div class="scenario-desc">📦 샘플 탭에서 '요청' 버튼 클릭. 💬 카톡 1-3 활용하여 업체에 발송 요청.</div>
+          </div>
+          <div class="scenario-step">
+            <div class="scenario-num">⑤</div>
+            <div class="scenario-title">공구 마감 및 판매입력</div>
+            <div class="scenario-desc">💵 판매입력 탭 → 품목별 수량 입력 → PG수수료/배송비 입력 → 💾 저장.</div>
+          </div>
+          <div class="scenario-step">
+            <div class="scenario-num">⑥</div>
+            <div class="scenario-title">정산 체크리스트 진행</div>
+            <div class="scenario-desc">✅ 정산체크 탭 → 단계별 완료 → 각 단계에서 💬 버튼으로 카톡 발송.</div>
+          </div>
+          <div class="scenario-step">
+            <div class="scenario-num">⑦</div>
+            <div class="scenario-title">정산서 생성</div>
+            <div class="scenario-desc">📋 정산서 탭 → 공구 선택 → 미리보기 확인 → 생성 → 엑셀 다운로드.</div>
+          </div>
+          <div class="scenario-step">
+            <div class="scenario-num">⑧</div>
+            <div class="scenario-title">정산 완료</div>
+            <div class="scenario-desc">모든 단계 완료 → 정산완료 자동 처리 → 공구매출 탭에서 '정산완료' 상태 확인.</div>
+          </div>
+        </div>
+
+        <h2>14.2 부가세 별도 업체 정산</h2>
+        <div class="steps-list">
+          <div class="step-item"><div class="step-num">1</div><div class="step-content">업체마스터에서 해당 업체의 부가세구분을 '별도'로 설정합니다.</div></div>
+          <div class="step-item"><div class="step-num">2</div><div class="step-content">캘린더 동기화를 실행합니다. 워크플로우에 부가세구분이 '별도'로 기록됩니다.</div></div>
+          <div class="step-item"><div class="step-num">3</div><div class="step-content">판매입력 시 자동으로 부가세 계산기가 활성화됩니다.</div></div>
+          <div class="step-item"><div class="step-num">4</div><div class="step-content">정산서 생성 시 제조사 탭에 판매가(VAT제외), 판매액(VAT제외) 컬럼이 추가됩니다.</div></div>
+        </div>
+
+        <h2>14.3 3.3% 프리랜서 셀러 정산</h2>
+        <div class="steps-list">
+          <div class="step-item"><div class="step-num">1</div><div class="step-content">셀러마스터에서 해당 셀러의 정산유형을 '3.3%'로 설정합니다.</div></div>
+          <div class="step-item"><div class="step-num">2</div><div class="step-content">공구 진행 및 판매입력은 동일합니다.</div></div>
+          <div class="step-item"><div class="step-num">3</div><div class="step-content">정산서 생성 시 인플루언서 탭에 '원천징수(3.3%)' 행이 추가됩니다.</div></div>
+          <div class="step-item"><div class="step-num">4</div><div class="step-content">홈 화면의 '3.3% 원천징수 내역' 표에 해당 건이 자동 집계됩니다.</div></div>
+        </div>
+      </section>
+
+      <!-- ════════ 섹션: FAQ ════════ -->
+      <section id="faq" class="section">
+        <div class="section-hero">
+          <h1>❓ 자주 묻는 질문 (FAQ)</h1>
+        </div>
+
+        <div class="faq-list" id="faqList">
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              <span>Q. 캘린더 동기화했는데 수수료율이 0으로 나옵니다.</span>
+              <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-a">업체마스터에 해당 업체가 등록되어 있지 않거나, 캘린더 일정의 업체명과 업체마스터의 업체명이 정확히 일치하지 않는 경우입니다. 업체마스터에서 이름을 확인하고 재동기화하세요. 또는 스프레드시트의 정산워크플로우 시트에서 직접 수수료율을 입력해도 됩니다.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              <span>Q. 판매입력 시 '제품이 등록되어 있지 않습니다'가 표시됩니다.</span>
+              <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-a">제품마스터에 해당 업체의 제품이 없는 것입니다. 제품마스터의 '업체명' 컬럼에 업체마스터와 동일한 이름으로, '제품명' 컬럼에 캘린더 일정과 동일한 이름으로 제품을 등록하세요.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              <span>Q. 정산서에 서류첨부 탭이 없습니다.</span>
+              <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-a">서류보관 폴더에 해당 업체/셀러 폴더가 없거나 폴더 내에 이미지 파일이 없는 경우입니다. 드라이브에 이미지를 업로드한 후 정산서를 재생성하세요.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              <span>Q. 정산완료를 되돌리고 싶습니다.</span>
+              <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-a">공구매출 탭에서 해당 공구의 상태 옆 ↩ 버튼을 클릭하거나, 정산 체크리스트에서 해당 공구를 클릭한 후 상세 패널의 '정산완료 되돌리기' 버튼을 클릭하세요.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              <span>Q. 카톡 템플릿의 변수가 치환되지 않습니다.</span>
+              <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-a">공구를 선택해야 변수가 치환됩니다. 또한 일부 변수({{오늘판매}}, {{송장번호}} 등)는 자동 치환이 불가하여 직접 수정해야 합니다.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              <span>Q. 부가세 별도 업체인데 계산기가 활성화되지 않습니다.</span>
+              <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-a">업체마스터에서 부가세구분이 '별도'로 설정되어 있는지 확인하세요. 설정 후 캘린더 동기화를 다시 실행해야 워크플로우에 반영됩니다.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              <span>Q. 여러 사람이 동시에 사용할 수 있나요?</span>
+              <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-a">구글 스프레드시트는 동시 편집을 지원합니다. 다만 웹앱에서 동일한 공구를 동시에 수정하면 나중에 저장한 데이터가 이전 데이터를 덮어쓸 수 있으니 주의하세요. Apps Script 배포 시 "액세스 권한"을 "조직 내 모든 사용자"로 설정하면 팀원 모두 사용 가능합니다.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              <span>Q. 공구매출현황 시트의 서식이 깨졌습니다.</span>
+              <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-a">공구매출 탭에서 '📄 구글시트 동기화' 버튼을 클릭하면 시트가 삭제 후 재생성되면서 서식이 초기화됩니다.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════ 섹션: 트러블슈팅 ════════ -->
+      <section id="troubleshoot" class="section">
+        <div class="section-hero">
+          <h1>🛠️ 트러블슈팅 가이드</h1>
+        </div>
+
+        <div class="trouble-list">
+          <div class="trouble-item">
+            <div class="trouble-symptom">⚠️ 웹앱 접속 시 흰 화면만 표시됨</div>
+            <ul class="doc-list">
+              <li>Apps Script 편집기에서 배포가 정상적으로 되었는지 확인합니다.</li>
+              <li>브라우저의 개발자 도구(F12) → Console 탭에서 오류 메시지를 확인합니다.</li>
+              <li>스프레드시트 ID가 올바른지 확인합니다.</li>
+            </ul>
+          </div>
+          <div class="trouble-item">
+            <div class="trouble-symptom">⚠️ '대시보드 로드 실패' 오류</div>
+            <ul class="doc-list">
+              <li>구글 스프레드시트에 접근 권한이 있는지 확인합니다.</li>
+              <li>정산워크플로우 시트가 존재하는지 확인합니다. 없으면 시스템 초기화를 실행하세요.</li>
+              <li>시트의 헤더행(1행)이 삭제되지 않았는지 확인합니다.</li>
+            </ul>
+          </div>
+          <div class="trouble-item">
+            <div class="trouble-symptom">⚠️ 캘린더 동기화 시 0건 표시</div>
+            <ul class="doc-list">
+              <li>CONFIG.CALENDAR_IDS의 이메일 주소가 올바른지 확인합니다.</li>
+              <li>해당 캘린더에 접근 권한이 있는지 확인합니다(공유 캘린더인 경우).</li>
+              <li>캘린더 일정의 날짜가 2026년 1월 1일 이후인지 확인합니다.</li>
+              <li>일정 제목에 하이픈(-)이 포함되어 있는지 확인합니다.</li>
+            </ul>
+          </div>
+          <div class="trouble-item">
+            <div class="trouble-symptom">⚠️ 정산서 생성 실패</div>
+            <ul class="doc-list">
+              <li>해당 공구에 판매 데이터가 있는지 확인합니다(총매출 > 0).</li>
+              <li>구글 드라이브의 정산서 폴더(SETTLEMENT_FOLDER_ID)에 쓰기 권한이 있는지 확인합니다.</li>
+              <li>Google Apps Script 일일 실행 쿼터가 초과되지 않았는지 확인합니다.</li>
+            </ul>
+          </div>
+          <div class="trouble-item">
+            <div class="trouble-symptom">⚠️ 마진 계산이 맞지 않음</div>
+            <ul class="doc-list">
+              <li>업체마스터의 수수료율이 올바른지 확인합니다 (예: 15 = 15%, 0.15가 아님).</li>
+              <li>수수료방식이 '%'인지 '원'인지 확인합니다.</li>
+              <li>부가세구분이 '별도'인 경우, VAT 제외 금액 기준으로 수수료가 계산됩니다.</li>
+              <li>판매입력 시 품목별 수수료율을 직접 수정한 경우, 해당 값이 적용됩니다.</li>
+            </ul>
+          </div>
+          <div class="trouble-item">
+            <div class="trouble-symptom">⚠️ 카톡 템플릿이 로드되지 않음</div>
+            <ul class="doc-list">
+              <li>카톡템플릿 시트가 존재하는지 확인합니다. 없으면 시스템에 내장된 기본 72개 템플릿이 사용됩니다.</li>
+              <li>시트가 있으나 데이터가 없는 경우, 시트를 삭제하면 기본 템플릿이 로드됩니다.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════ 섹션: 카톡 템플릿 전체 목록 ════════ -->
+      <section id="templates" class="section">
+        <div class="section-hero">
+          <h1>📝 카톡 템플릿 전체 목록</h1>
+          <p>72개 템플릿의 전체 ID, 제목, 대상 목록입니다.</p>
+        </div>
+
+        <div class="template-filter-bar">
+          <button class="tpl-filter-btn active" data-cat="all" onclick="filterTemplates(this, 'all')">전체 (72개)</button>
+          <button class="tpl-filter-btn" data-cat="샘플" onclick="filterTemplates(this, '샘플')">① 샘플</button>
+          <button class="tpl-filter-btn" data-cat="준비" onclick="filterTemplates(this, '준비')">② 공구 준비</button>
+          <button class="tpl-filter-btn" data-cat="진행" onclick="filterTemplates(this, '진행')">③ 공구 진행</button>
+          <button class="tpl-filter-btn" data-cat="발주" onclick="filterTemplates(this, '발주')">④ 발주/배송</button>
+          <button class="tpl-filter-btn" data-cat="정산" onclick="filterTemplates(this, '정산')">⑤ 정산</button>
+          <button class="tpl-filter-btn" data-cat="CS" onclick="filterTemplates(this, 'CS')">⑥ CS/이슈</button>
+          <button class="tpl-filter-btn" data-cat="관계" onclick="filterTemplates(this, '관계')">⑦ 관계유지</button>
+        </div>
+
+        <table class="doc-table" id="templateTable">
+          <thead><tr><th>ID</th><th>단계</th><th>제목</th><th>대상</th></tr></thead>
+          <tbody id="templateTableBody"></tbody>
+        </table>
+      </section>
+
+    </div><!-- /content -->
+  </main>
+
+  <!-- 검색 결과 드롭다운 -->
+  <div class="search-results" id="searchResults"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
